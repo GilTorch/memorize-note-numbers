@@ -1,3 +1,7 @@
 <p>q-and-a works!</p>
-<app-degree-key degree="1" key="C" />
-<app-selectable type="Degree" [options]="degrees()" (selectOption)="onSelectOption($event)" />
+<div class="degree-key">
+    <app-degree-key degree="1" key="C" />
+</div>
+<div class="selectable">
+    <app-selectable type="Degree" [options]="degrees()" (selectOption)="onSelectOption($event)" />
+</div>

@@ -1,0 +1,37 @@
+@use '../../_variables' as *;
+@use '../../_typography' as *;
+
+.degrees-numbers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid white;
+    padding: 24px;
+}
+
+.degree-number {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+}
+
+.degree, .number {
+    font-size: 40px;
+}
+
+.degree {
+    color: $key-color;
+    font-family: $primary;
+    font-weight: 500;
+}
+
+.double-arrow {
+    transform: scale(2);
+    color: #656565;
+}
+
+.number {
+    color: $number-color;
+}

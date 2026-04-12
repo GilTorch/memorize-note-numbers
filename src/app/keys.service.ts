@@ -8,8 +8,8 @@ import { Degree, Key } from './key.model';
 export class KeysService {
 
   readonly keys = signal<Key[]>([]);
-  readonly selectedKey = signal<Key | undefined>(undefined);
-  readonly keyDegreesToNumbers = signal<Record<Degree, Key> | undefined>(undefined);
+  readonly selectedKey = signal<Key | "">("");
+  readonly keyDegreesToNumbers = signal<Record<Degree, Key> | {}>({});
 
   constructor(){
     this.keys.set(Object.keys(note_numbers) as Key[]);

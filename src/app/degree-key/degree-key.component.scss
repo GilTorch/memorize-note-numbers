@@ -1,0 +1,28 @@
+@use '../../variables' as *;
+
+.degree-key {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.degree, .key {
+    font-size: 24px;
+}
+
+.key {
+    color: $key-color;
+    font-weight: 400;
+}
+
+.double-arrow {
+    transform: scale(1.5);
+    color: #656565;
+}
+
+.degree {
+    color: $degree-color;
+    font-weight: 400;
+}

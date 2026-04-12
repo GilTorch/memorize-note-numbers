@@ -9,21 +9,21 @@ export class KeysService {
 
   readonly keys = signal<Key[]>([]);
   readonly degrees = signal<Degree[]>(["1", "2", "3", "4", "5", "6", "7"]);
-  readonly selectedKey = signal<Key | "">("");
-  readonly keyDegreesToNumbers = signal<Record<Degree, Key> | {}>({});
+  readonly selectedKey = signal<Key | undefined>(undefined);
+  readonly selectedDegree = signal<Degree | "">("");
+  readonly keysToDegrees = signal<Record<Degree, Key> | undefined>(undefined);
 
   constructor(){
     this.keys.set(Object.keys(note_numbers) as Key[]);
   }
 
   selectKey(key: Key){
-    this.keyDegreesToNumbers.set(note_numbers[key] as Record<Degree, Key>);
+    this.keysToDegrees.set(note_numbers[key] as Record<Degree, Key>);
     this.selectedKey.set(key);
   }
 
-  selectDegree(key: Key){
-    this.keyDegreesToNumbers.set(note_numbers[key] as Record<Degree, Key>);
-    this.selectedKey.set(key);
+  selectDegree(degree: Degree){
+    this.selectedDegree.set(degree);
   }
 
 }

@@ -6,9 +6,8 @@
   <p>
     Choose the key you want to memorize:
   </p>
-  <app-selectable type="Key" [options]="keys()" (selectOption)="onSelectOption($event)" />
-  <app-selectable type="Degree" [options]="degrees()" (selectOption)="onSelectOption($event)" />
-  <app-degrees-numbers-sheet />
+  <app-selectable [selected]="selectedKey()" type="Key" [options]="keys()" (selectOption)="onSelectOption($event,'Key')" />
+  <app-degrees-keys-sheet />
 </main>
 <footer>
   Copyright Gilbert Torchon 2026

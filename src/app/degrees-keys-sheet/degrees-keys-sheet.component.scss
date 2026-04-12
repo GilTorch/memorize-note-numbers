@@ -1,0 +1,13 @@
+@use '../../_variables' as *;
+@use '../../_typography' as *;
+
+.degrees-keys {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border: 1px solid white;
+    padding: 24px;
+}

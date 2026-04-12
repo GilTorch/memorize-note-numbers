@@ -1,0 +1,9 @@
+
+<div class="degrees-keys">
+    @for(degree of keysToDegreesList(); track degree){
+        <div class="degree-number">
+           <app-degree-key [degree]="degree[0]"  [key]="degree[1]"/>
+        </div>
+    }
+</div>
+ 

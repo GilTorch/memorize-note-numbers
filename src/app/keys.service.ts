@@ -8,6 +8,7 @@ import { Degree, Key } from './key.model';
 export class KeysService {
 
   readonly keys = signal<Key[]>([]);
+  readonly degrees = signal<Degree[]>(["1", "2", "3", "4", "5", "6", "7"]);
   readonly selectedKey = signal<Key | "">("");
   readonly keyDegreesToNumbers = signal<Record<Degree, Key> | {}>({});
 
@@ -16,6 +17,11 @@ export class KeysService {
   }
 
   selectKey(key: Key){
+    this.keyDegreesToNumbers.set(note_numbers[key] as Record<Degree, Key>);
+    this.selectedKey.set(key);
+  }
+
+  selectDegree(key: Key){
     this.keyDegreesToNumbers.set(note_numbers[key] as Record<Degree, Key>);
     this.selectedKey.set(key);
   }

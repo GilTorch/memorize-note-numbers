@@ -6,7 +6,8 @@
   <p>
     Choose the key you want to memorize:
   </p>
-  <app-selectable-notes />
+  <app-selectable type="Key" [options]="keys()" (selectOption)="onSelectOption($event)" />
+  <app-selectable type="Degree" [options]="degrees()" (selectOption)="onSelectOption($event)" />
   <app-degrees-numbers-sheet />
 </main>
 <footer>

@@ -1,0 +1,8 @@
+
+<button (click)="onSelectKey()" class="selectable" 
+[ngClass]="{ 
+        'selected-key': type() === 'Key' && selected(), 'default-key': type() === 'Key' && !selected(),
+        'selected-degree': type() === 'Degree' && selected(), 'default-degree': type() === 'Degree' && !selected() 
+    }">
+    {{ option() }}
+</button>

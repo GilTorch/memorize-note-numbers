@@ -8,13 +8,22 @@
  padding: 24px;
 }
 
+.default-degree {
+ border: 1px solid $degree-color;
+ color: $degree-color;
+}
 
-.default {
+.selected-degree, .default-degree:hover {
+ border: 1px solid white;
+ background-color: $degree-color;
+ color: white;
+}
+.default-key {
  border: 1px solid $key-color;
  color: $key-color;
 }
 
-.selected, :hover {
+.selected-key, .default-key:hover {
  border: 1px solid white;
  background-color: $key-color;
  color: white;

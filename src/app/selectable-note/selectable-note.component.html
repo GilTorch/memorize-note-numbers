@@ -1,0 +1,4 @@
+
+<button (click)="onSelectKey()" class="selectable" [ngClass]="{ 'selected': selected(), 'default': !selected() }">
+    {{ key() }}
+</button>

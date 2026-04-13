@@ -3,6 +3,16 @@
   margin: auto;
 }
 
+.info{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.info a {
+  color: orange;
+}
+
 main {
   display: flex; 
   flex-direction: column;

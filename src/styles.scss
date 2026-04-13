@@ -33,6 +33,8 @@ body {
   background-color: #313131;
   font-family: $primary;
   font-size: 24px;
+  font-weight: 200;
+  color: white;
   // Reset the user agent margin.
   margin: 0;
   height: 100%;
@@ -68,4 +70,8 @@ h1 {
     'CRSV' 0.5,
     'ELSH' 0,
     'ELXP' 0;
+}
+
+.number {
+  color: $number-color;
 }

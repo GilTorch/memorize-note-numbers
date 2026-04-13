@@ -4,12 +4,13 @@ import { DegreesKeysSheetComponent } from "./degrees-keys-sheet/degrees-keys-she
 import { KeysService } from './keys.service';
 import { Degree, Key } from './key.model';
 import { QAndAComponent } from "./q-and-a/q-and-a.component";
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
-  imports: [SelectableComponent, DegreesKeysSheetComponent, QAndAComponent]
+  imports: [SelectableComponent, DegreesKeysSheetComponent, QAndAComponent, MatIconModule]
 })
 export class App {
   protected readonly title = signal('memorize-note-numbers');

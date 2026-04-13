@@ -1,7 +1,14 @@
-<p>q-and-a works!</p>
-<div class="degree-key">
-    <app-degree-key degree="1" key="C" />
-</div>
-<div class="selectable">
-    <app-selectable type="Degree" [options]="degrees()" (selectOption)="onSelectOption($event)" />
+<p>
+    You have <span class="number">5</span> seconds to choose the <span class="degree">degree</span> that is associated to this <span class="key">key</span>
+</p>
+<div class="wrapper">
+    <div class="degree-key">
+        <app-degree-key degree="1" key="C" />
+    </div>
+    <div class="selectable">
+        <app-selectable type="Degree" [options]="degrees()" (selectOption)="onSelectOption($event)" />
+    </div>
+    <p>
+        Score: <span class="number">0</span> / 7
+    </p>
 </div>

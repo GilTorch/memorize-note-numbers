@@ -1,3 +1,20 @@
+@use "../../variables" as *;
+
 .degree-key {
     margin-bottom: 24px;
+}
+
+.degree {
+    color: $degree-color;
+}
+
+.key {
+    color: $key-color;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

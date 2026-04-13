@@ -1,8 +1,8 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, effect, signal, DestroyRef } from '@angular/core';
 import { SelectableComponent } from './selectable/selectable.component';
 import { DegreesKeysSheetComponent } from "./degrees-keys-sheet/degrees-keys-sheet.component";
 import { KeysService } from './keys.service';
-import { Degree, Key } from './key.model';
+import {  Key } from './key.model';
 import { QAndAComponent } from "./q-and-a/q-and-a.component";
 import { MatIconModule } from '@angular/material/icon';
 import { ScoreScreenComponent } from "./score-screen/score-screen.component";
@@ -18,12 +18,53 @@ export class App {
   keysService = inject(KeysService);
   keys = this.keysService.keys;
   selectedKey = this.keysService.selectedKey;
+  step = this.keysService.step;
+  interval: number | undefined;
+  timeout: number | undefined;
+  intervalCount = signal(60);
+  
+  destroyRef = inject(DestroyRef);
 
-  onSelectOption(option: string, type: "Key" | "Degree"){
-    if(type === "Key"){
-      this.keysService.selectKey(option as Key);
-    } else {
-      this.keysService.selectDegree(option as Degree);
-    }
+  constructor() {
+
+    effect(() => {
+          if(this.intervalCount() === 0){
+          this.keysService.step.set(3);
+          if(this.interval){
+            clearInterval(this.interval);
+          }
+
+          if(this.timeout){
+            clearTimeout(this.timeout);
+          }
+        }
+    })
+
+    effect(() => {
+      if(this.step() === 2){
+
+        this.interval = setInterval(() => {
+            this.intervalCount.update(val => val - 1);
+          },1000)
+
+        this.timeout = setTimeout(() => {
+            clearInterval(this.interval);
+          },60000)
+      }
+    })
+
+    this.destroyRef.onDestroy(() => {
+      if(this.interval){
+        clearInterval(this.interval);
+      }
+
+      if(this.timeout){
+        clearTimeout(this.timeout);
+      }
+    })
+  }
+
+  onSelectOption(option: string){
+    this.keysService.selectKey(option as Key);
   }
 }

@@ -1,12 +1,29 @@
 <main>
   <h1 class="title">Number system Memorizer <span class="title-note">♪</span></h1>
-  <!-- <p class="instruction">
-    Choose the key you want to memorize:
-  </p> -->
-  <!-- <app-selectable [selected]="selectedKey()" type="Key" [options]="keys()" (selectOption)="onSelectOption($event,'Key')" />
-  <app-degrees-keys-sheet /> -->
-  <app-q-and-a />
-  <app-score-screen />
+  
+  @switch(step()){
+    @case(1){
+      <p class="instruction">
+        Choose the <span class="key">key</span> you want to memorize:
+      </p> 
+      <app-selectable [selected]="selectedKey()" type="Key" [options]="keys()" (selectOption)="onSelectOption($event)" />
+      
+    }
+    @case(2){
+      <div class="degrees-keys-sheet">
+        <p class="instruction">
+          You have <span class="number">{{ intervalCount() }}</span> seconds to memorize this:
+        </p> 
+        <app-degrees-keys-sheet />
+      </div>
+    }
+    @case (3){
+      <app-q-and-a />
+    }
+    @case (4){
+      <app-score-screen />
+    }
+  }
 </main>
 <footer>
   Copyright &copy; Gilbert Torchon 2026

@@ -12,6 +12,7 @@ export class KeysService {
   readonly selectedKey = signal<Key | undefined>(undefined);
   readonly selectedDegree = signal<Degree | "">("");
   readonly keysToDegrees = signal<Record<Degree, Key> | undefined>(undefined);
+  step = signal(1);
 
   constructor(){
     this.keys.set(Object.keys(note_numbers) as Key[]);
@@ -20,6 +21,7 @@ export class KeysService {
   selectKey(key: Key){
     this.keysToDegrees.set(note_numbers[key] as Record<Degree, Key>);
     this.selectedKey.set(key);
+    this.step.set(2);
   }
 
   selectDegree(degree: Degree){

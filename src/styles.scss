@@ -41,9 +41,14 @@ body {
 }
 /* You can add global styles to this file, and also import other style files */
 
+
 button {
-    font-family: $primary;
-    font-size: 24px;
+  background-color: $key-color;
+  padding: 12px;
+  color: white;
+  font-family: $primary;
+  font-weight: 400;
+  font-size: 24px;
 }
 
 h1 {
@@ -75,3 +80,4 @@ h1 {
 .number {
   color: $number-color;
 }
+

@@ -12,6 +12,7 @@ export class KeysService {
   readonly selectedKey = signal<Key | undefined>(undefined);
   readonly selectedDegree = signal<Degree | "">("");
   readonly keysToDegrees = signal<Record<Degree, Key> | undefined>(undefined);
+  readonly randomDegree = signal<[Degree, Key] | undefined>(undefined)
   step = signal(1);
   keysToDegreesList = computed(() => {
     if(this.keysToDegrees()){
@@ -19,14 +20,16 @@ export class KeysService {
     }
     return []
   })
-  randomDegree = computed(() => {
+
+  setRandomDegree = () => {
     if(this.keysToDegreesList()){
       const randomIndex = Math.floor(Math.random() * ((this.keysToDegreesList().length - 1) - 0))
-     return this.keysToDegreesList()[randomIndex];
+     this.randomDegree.set(this.keysToDegreesList()[randomIndex]);
+    } else{
+      this.randomDegree.set(undefined);
     }
 
-    return []
-  })
+  }
 
 
   constructor(){

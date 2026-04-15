@@ -10,11 +10,13 @@ import { KeysService } from '../keys.service';
   styleUrl: './q-and-a.component.scss',
 })
 export class QAndAComponent {
-    keysService = inject(KeysService);
+    private keysService = inject(KeysService);
     degrees = this.keysService.degrees;
     randomDegree = this.keysService.randomDegree;
-    count = signal(5);
+    count = signal(10);
     destroyRef = inject(DestroyRef);
+    score = this.keysService.score
+    selectedKey = this.keysService.selectedKey
 
     constructor(){
 
@@ -28,7 +30,7 @@ export class QAndAComponent {
       effect(() => {
         if(this.count() === 0){
           this.keysService.setRandomDegree();
-          this.count.set(5);
+          this.count.set(10);
           clearInterval(interval)
           interval = countIntervalFn();
         }
@@ -41,6 +43,8 @@ export class QAndAComponent {
 
 
     onSelectOption(option: string){
-
+      if(option === this.randomDegree()?.[0]){
+        this.keysService.updateScore(1)
+      }
     }
 }

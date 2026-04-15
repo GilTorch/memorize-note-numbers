@@ -1,5 +1,5 @@
 <p class="instruction">
-    You have <span class="number">{{ count() }}</span> seconds to choose the <span class="degree">degree</span> that is associated to this <span class="key">key</span>
+    You have <span class="number">{{ count() }}</span> seconds to choose the <span class="degree">degree</span> that is associated to the key of: <span class="key">{{ selectedKey() }}</span>
 </p>
 <div class="wrapper">
     <div class="degree-key">
@@ -12,6 +12,6 @@
         <app-selectable type="Degree" [options]="degrees()" (selectOption)="onSelectOption($event)" />
     </div>
     <p>
-        Score: <span class="number">0</span> / 7
+        Score: <span class="number">{{ score() }}</span> / 7
     </p>
 </div>

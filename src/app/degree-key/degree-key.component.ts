@@ -9,6 +9,6 @@ import { Degree, Key } from '../key.model';
   styleUrl: './degree-key.component.scss',
 })
 export class DegreeKeyComponent {
-  degree=input.required<string>()
+  degree=input.required<Degree>()
   key=input.required<Key>()
 }

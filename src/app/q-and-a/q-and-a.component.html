@@ -3,7 +3,7 @@
 </p>
 <div class="wrapper">
     <div class="degree-key">
-        <app-degree-key degree="1" key="C" />
+        <app-degree-key degree="?" [key]="randomDegree()[1]" />
     </div>
     <div class="selectable">
         <app-selectable type="Degree" [options]="degrees()" (selectOption)="onSelectOption($event)" />

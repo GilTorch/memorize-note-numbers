@@ -12,6 +12,7 @@ import { KeysService } from '../keys.service';
 export class QAndAComponent {
     keysService = inject(KeysService);
     degrees = this.keysService.degrees;
+    randomDegree = this.keysService.randomDegree;
 
     onSelectOption(option: string){
 

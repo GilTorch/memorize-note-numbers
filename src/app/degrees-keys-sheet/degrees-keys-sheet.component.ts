@@ -11,13 +11,6 @@ import { Degree, Key } from '../key.model';
 })
 export class DegreesKeysSheetComponent {
   keysService = inject(KeysService);
-  keysToDegrees = this.keysService.keysToDegrees
+  keysToDegreesList = this.keysService.keysToDegreesList
   
-  keysToDegreesList = computed(() => {
-    if(this.keysToDegrees()){
-     return  Object.entries(this.keysToDegrees() as Record<Degree, Key>) as unknown as [Degree, Key][]
-    }
-    return undefined
-  })
-
 }

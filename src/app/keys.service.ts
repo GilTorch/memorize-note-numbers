@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import note_numbers from './note-numbers.json';
 import { Degree, Key } from './key.model';
 
@@ -13,6 +13,21 @@ export class KeysService {
   readonly selectedDegree = signal<Degree | "">("");
   readonly keysToDegrees = signal<Record<Degree, Key> | undefined>(undefined);
   step = signal(1);
+  keysToDegreesList = computed(() => {
+    if(this.keysToDegrees()){
+     return  Object.entries(this.keysToDegrees() as Record<Degree, Key>) as unknown as [Degree, Key][]
+    }
+    return []
+  })
+  randomDegree = computed(() => {
+    if(this.keysToDegreesList()){
+      const randomIndex = Math.floor(Math.random() * ((this.keysToDegreesList().length - 1) - 0))
+     return this.keysToDegreesList()[randomIndex];
+    }
+
+    return []
+  })
+
 
   constructor(){
     this.keys.set(Object.keys(note_numbers) as Key[]);
@@ -27,5 +42,4 @@ export class KeysService {
   selectDegree(degree: Degree){
     this.selectedDegree.set(degree);
   }
-
 }

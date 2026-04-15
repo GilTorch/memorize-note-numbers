@@ -15,8 +15,10 @@ export class QAndAComponent {
     randomDegree = this.keysService.randomDegree;
     count = signal(10);
     destroyRef = inject(DestroyRef);
-    score = this.keysService.score
-    selectedKey = this.keysService.selectedKey
+    score = this.keysService.score;
+    selectedKey = this.keysService.selectedKey;
+    selectedDegree = this.keysService.selectedDegree;
+    disabled = signal(false);
 
     constructor(){
 
@@ -41,10 +43,4 @@ export class QAndAComponent {
     }
 
 
-
-    onSelectOption(option: string){
-      if(option === this.randomDegree()?.[0]){
-        this.keysService.updateScore(1)
-      }
-    }
 }

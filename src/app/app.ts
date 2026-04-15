@@ -17,7 +17,6 @@ export class App {
   protected readonly title = signal('memorize-note-numbers');
   keysService = inject(KeysService);
   keys = this.keysService.keys;
-  selectedKey = this.keysService.selectedKey;
   step = this.keysService.step;
   interval: number | undefined;
   timeout: number | undefined;
@@ -64,7 +63,4 @@ export class App {
     })
   }
 
-  onSelectOption(option: string){
-    this.keysService.selectKey(option as Key);
-  }
 }

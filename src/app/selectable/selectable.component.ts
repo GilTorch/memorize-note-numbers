@@ -12,13 +12,7 @@ import { Degree, Key } from '../key.model';
 })
 export class SelectableComponent {
 
-  keysService = inject(KeysService);
   options = input.required<(Key | Degree)[]>();
-  selected = input<Key | Degree>();
-  selectOption = output<string>();
   type=input.required<"Key" | "Degree">();
 
-  onSelectOption(option: string){
-    this.selectOption.emit(option);
-  }
 }

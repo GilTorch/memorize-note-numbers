@@ -11,7 +11,7 @@
       <p class="instruction">
         Choose the <span class="key">key</span> you want to memorize:
       </p> 
-      <app-selectable [selected]="selectedKey()" type="Key" [options]="keys()" (selectOption)="onSelectOption($event)" />
+      <app-selectable type="Key" [options]="keys()" />
       
     }
     @case(2){

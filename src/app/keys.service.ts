@@ -14,7 +14,7 @@ export class KeysService {
   readonly keysToDegrees = signal<Record<Degree, Key> | undefined>(undefined);
   readonly randomDegree = signal<[Degree, Key] | undefined>(undefined);
   readonly score = signal(0);
-  readonly disabledDegrees = signal(false);
+  readonly disabledDegreeSelection = signal(false);
 
   step = signal(1);
   keysToDegreesList = computed(() => {
@@ -45,7 +45,7 @@ export class KeysService {
     this.step.set(2);
   }
 
-  selectDegree(degree: Degree){
+  selectDegree(degree: Degree | undefined){
       this.selectedDegree.set(degree);
       if(degree === this.randomDegree()?.[0]){
         this.updateScore(1)
@@ -53,7 +53,7 @@ export class KeysService {
   }
 
   setDisabledDegrees(val: boolean){
-    this.disabledDegrees.set(val);
+    this.disabledDegreeSelection.set(val);
   }
 
   updateScore(value: 1){

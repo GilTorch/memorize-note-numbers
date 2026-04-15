@@ -1,8 +1,9 @@
 
-<button (click)="onSelectOption()" class="selectable"
+<button (click)="onSelectOption()" [disabled]="disabled()" class="selectable"
 [ngClass]="{ 
         'selected-key': type() === 'Key' && selected(), 'default-key': type() === 'Key' && !selected(),
-        'selected-degree': type() === 'Degree' && selected(), 'default-degree': type() === 'Degree' && !selected() ,        
+        'selected-degree': type() === 'Degree' && selected(), 'default-degree': type() === 'Degree' && !selected(), 
+        'disabled': disabled()       
     }">
     {{ option() }}
 </button>

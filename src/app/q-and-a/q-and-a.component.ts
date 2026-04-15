@@ -32,6 +32,8 @@ export class QAndAComponent {
       effect(() => {
         if(this.count() === 0){
           this.keysService.setRandomDegree();
+          this.keysService.setDisabledDegrees(false);
+          this.keysService.selectDegree(undefined)
           this.count.set(10);
           clearInterval(interval)
           interval = countIntervalFn();

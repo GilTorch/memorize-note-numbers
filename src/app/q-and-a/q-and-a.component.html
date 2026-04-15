@@ -1,9 +1,12 @@
 <p class="instruction">
-    You have <span class="number">5</span> seconds to choose the <span class="degree">degree</span> that is associated to this <span class="key">key</span>
+    You have <span class="number">{{ count() }}</span> seconds to choose the <span class="degree">degree</span> that is associated to this <span class="key">key</span>
 </p>
 <div class="wrapper">
     <div class="degree-key">
-        <app-degree-key degree="?" [key]="randomDegree()[1]" />
+        @let degree = randomDegree();
+        @if(degree){
+            <app-degree-key degree="?" [key]="degree[1]" />
+        }
     </div>
     <div class="selectable">
         <app-selectable type="Degree" [options]="degrees()" (selectOption)="onSelectOption($event)" />

@@ -21,7 +21,7 @@ export class App {
   step = this.keysService.step;
   interval: number | undefined;
   timeout: number | undefined;
-  intervalCount = signal(60);
+  intervalCount = signal(5);
   
   destroyRef = inject(DestroyRef);
 
